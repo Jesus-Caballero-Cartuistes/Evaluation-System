@@ -1,0 +1,41 @@
+@media print {
+    /* Asegura que los elementos no se corten entre páginas */
+    /** {*/
+    /*    page-break-inside: avoid !important;  !* Evitar que se corten entre páginas *!*/
+    /*    page-break-before: auto !important;   !* Permite que los elementos se inicien en una nueva página si es necesario *!*/
+    /*    page-break-after: auto !important;    !* Permite que los elementos se mantengan completos en la misma página *!*/
+    /*}*/
+
+    /* Específicamente para contenedores más grandes o de bloques */
+    .section {
+        page-break-inside: avoid !important;  /* Evitar el corte dentro de estos contenedores */
+    }
+
+    /* Evitar cortes en imágenes */
+    img {
+        page-break-inside: avoid !important;  /* Impide que las imágenes se corten entre páginas */
+    }
+
+    /* Ocultar todo el contenido del body */
+    body * {
+        visibility: hidden !important;
+    }
+
+    /* Mostrar solo el contenido del .container */
+    .show-print, .show-print * {
+        visibility: visible !important;
+    }
+
+    /* Asegurar que el contenedor se ajusta bien en la página de impresión */
+    .show-print {
+        width: 100%;
+        padding: 0 !important;
+        border: 0.5in !important;
+    }
+
+    /* Ocultar el botón durante la impresión */
+    .hidden-print {
+        display: none;
+    }
+}
+
