@@ -24,12 +24,9 @@
     "@radix-ui/react-toggle": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.1.6",
     "@react-buddy/ide-toolbox": "^2.4.0",
-    "@react-buddy/palette-antd": "^5.3.1",
-    "@react-buddy/palette-react-intl": "^5.20.2",
     "@shadcn/ui": "^0.0.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "antd": "^5.22.4",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -48,9 +45,7 @@
     "recharts": "^2.14.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "underscore": "^1.13.7",
-    "web-vitals": "^2.1.4",
-    "zod": "^3.24.1"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
