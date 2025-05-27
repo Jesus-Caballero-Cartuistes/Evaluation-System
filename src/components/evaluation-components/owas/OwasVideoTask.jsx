@@ -197,43 +197,43 @@ function OwasVideoTask({
 
     const handleSubmit = async () => {
         if (component.videoFile && component.videoFile.url) {
-            try {
-                await evaluateVideo(component.videoFile.file, component.load, component.startTime, component.endTime);
-                captureFirstFrame();
-            } catch (error) {
-                console.error('Error al evaluar la tarea:', error);
-            }
-
-            // const extension = component.videoFile.file.name.split('.').pop();
-            // const fileType = component.videoFile.file.type.startsWith('video') ? 'video' : 'image';
-            //
             // try {
-            //     // Paso 1: Obtener URL de subida
-            //     const { upload_url, public_url, s3_key } = await requestUploadUrl(fileType, extension);
-            //     if (!upload_url) throw new Error("No se pudo obtener el URL de subida.");
-            //     console.log('upload_url:', upload_url);
-            //     console.log('public_url:', public_url);
-            //     console.log('s3_key:', s3_key);
-            //
-            //     // Paso 2: Subir archivo a S3
-            //     await uploadFile(upload_url, component.videoFile.file);
-            //
-            //     // Paso 3: Obtener URL de descarga
-            //     const downloadUrl = await requestDownloadUrl(s3_key);
-            //     if (!downloadUrl) throw new Error("No se pudo obtener el URL de descarga.");
-            //     console.log('download_url:', downloadUrl["download_url"]);
-            //
-            //     // Paso 4: Evaluar el video
-            //     await evaluateVideoURL(downloadUrl["download_url"], component.load, component.startTime, component.endTime);
+            //     await evaluateVideo(component.videoFile.file, component.load, component.startTime, component.endTime);
             //     captureFirstFrame();
-            //
-            //     // Paso 5: Eliminar el archivo de S3
-            //     await removeFile(s3_key);
-            //     console.log('Archivo eliminado de S3:', s3_key);
-            //
-            // } catch (err) {
-            //     console.error("Error en el flujo de carga y evaluación:", err);
+            // } catch (error) {
+            //     console.error('Error al evaluar la tarea:', error);
             // }
+
+            const extension = component.videoFile.file.name.split('.').pop();
+            const fileType = component.videoFile.file.type.startsWith('video') ? 'video' : 'image';
+
+            try {
+                // Paso 1: Obtener URL de subida
+                const { upload_url, public_url, s3_key } = await requestUploadUrl(fileType, extension);
+                if (!upload_url) throw new Error("No se pudo obtener el URL de subida.");
+                console.log('upload_url:', upload_url);
+                console.log('public_url:', public_url);
+                console.log('s3_key:', s3_key);
+
+                // Paso 2: Subir archivo a S3
+                await uploadFile(upload_url, component.videoFile.file);
+
+                // Paso 3: Obtener URL de descarga
+                const downloadUrl = await requestDownloadUrl(s3_key);
+                if (!downloadUrl) throw new Error("No se pudo obtener el URL de descarga.");
+                console.log('download_url:', downloadUrl["download_url"]);
+
+                // Paso 4: Evaluar el video
+                await evaluateVideoURL(downloadUrl["download_url"], component.load, component.startTime, component.endTime);
+                captureFirstFrame();
+
+                // Paso 5: Eliminar el archivo de S3
+                await removeFile(s3_key);
+                console.log('Archivo eliminado de S3:', s3_key);
+
+            } catch (err) {
+                console.error("Error en el flujo de carga y evaluación:", err);
+            }
 
         }
     }
