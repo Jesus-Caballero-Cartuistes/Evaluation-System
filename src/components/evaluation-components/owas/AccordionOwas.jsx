@@ -48,7 +48,7 @@ export function AccordionOwas(props) {
                              "De pie con una pierna recta y la otra flexionada",
                              "De pie o en cuclillas con las dos piernas flexionadas y el peso equilibrado entre ambas",
                              "De pie o en cuclillas con las dos piernas flexionadas y el peso desequilibrado",
-                             "0",
+                             "Arrodillado",
                              0]}
                          value={props.result["legs"]["value"]}
                          confidence={props.result["legs"]["confidence"]}
